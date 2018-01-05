@@ -1,0 +1,29 @@
+
+.page-board-section{
+    margin: 0 auto;
+    max-width: 1250px;
+    padding: 20px 16px 0;
+}
+
+
+.page-board-section .page-board-section-title{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.page-board-section .page-board-section-title svg{
+    width: 20px;
+    height: 20px;
+    max-height: 20px;
+    max-width: 20px;
+    margin-right: 5px;
+
+    fill:none;
+    stroke:#999;
+    stroke-miterlimit:10;
+    stroke-width:3;
+
+
+}

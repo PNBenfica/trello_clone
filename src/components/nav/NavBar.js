@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+import './NavBar.css'
+
+class NavBar extends Component {
+  	render() {
+		return ( 
+			<nav className="main-nav">
+				<p>Trellox</p>
+			</nav>
+		)
+	}
+}
+
+export default NavBar
