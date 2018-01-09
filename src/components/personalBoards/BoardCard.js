@@ -19,7 +19,7 @@ class BoardCard extends Component {
         const { transparent } = this.state
 
         return (
-            <a href={"#/board/" + id} className={className("board-card personal-board-card", { transparent })} >
+            <a href={"/board/" + id} className={className("board-card personal-board-card", { transparent })} >
                 <div className="inner-item">
                     <div className="background" style={{backgroundColor: color}}></div>
                     <p>{name}</p>
