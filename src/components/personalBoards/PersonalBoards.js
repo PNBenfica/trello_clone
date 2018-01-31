@@ -6,9 +6,14 @@ import "./PersonalBoards.css"
 
 class PersonalBoards extends Component {
 
+    componentWillMount(){
+        this.props.fetchBoards()
+    }
+
   	render() {
 
-        const { boards } = this.props
+        let { boards } = this.props
+        boards = Object.values(boards.boardsById)
 
 		return (
             <PageBoardSection name="Personal Boards" icon={<UserSvg/>}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import className from "classnames"
 import './BoardCard.css'
 
@@ -19,12 +20,12 @@ class BoardCard extends Component {
         const { transparent } = this.state
 
         return (
-            <a href={"/board/" + id} className={className("board-card personal-board-card", { transparent })} >
+            <NavLink to={"/board/" + id} className={className("board-card personal-board-card", { transparent })} >
                 <div className="inner-item">
                     <div className="background" style={{backgroundColor: color}}></div>
                     <p>{name}</p>
                 </div>
-            </a>
+            </NavLink>
         )
 
     }

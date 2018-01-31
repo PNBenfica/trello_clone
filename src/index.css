@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
 }
 
 a {
@@ -10,4 +11,134 @@ a {
 
 .transparent {
   opacity: 0;
+}
+
+
+
+.fade-appear .slide-bottom-page,
+.fade-enter .slide-bottom-page{
+  transform: translateY(100%);
+}
+
+.fade-appear-active .slide-bottom-page,
+.fade-enter-active .slide-bottom-page{
+  transform: translateY(0%);
+  -webkit-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  -moz-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  -o-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+}
+
+.fade-exit .slide-bottom-page{
+  transform: translateY(0%);
+  -webkit-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  -moz-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  -o-transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+  transition: all 1500ms cubic-bezier(0.550,0.085,0.000,0.990);
+}
+
+.fade-exit-active .slide-bottom-page{
+  transform: translateY(100%);
+}
+
+.full-page{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bbb;
+}
+.slide-bottom-page{
+  background-color: #ddd;
+  z-index: 1;
+}
+
+
+
+.rounded-arrow {
+  background: rgba(0,0,0,0.3);
+  border: solid 2px white;
+  border-radius: 100%;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 50px;
+  height: 50px;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+
+.rounded-arrow.rounded-arrow-invisible {
+  transform: scale(0);
+}
+
+.rounded-arrow.rounded-arrow-visible {
+  animation-name: scale-up-down;
+  animation-duration: 0.75s;
+}
+
+
+.rounded-arrow .main {
+  position: absolute;
+  width: 2px;
+  height: 30px;
+  background-color: white;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 10px;
+}
+
+.rounded-arrow .left, .rounded-arrow .right{
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -4px;
+  transform-origin: bottom;
+}
+
+.rounded-arrow .left{
+  transform: rotate(135deg);
+}
+
+.rounded-arrow .right{
+  transform: rotate(225deg);
+}
+
+
+.rounded-arrow.rounded-arrow-visible .main {
+  animation-name: rounded-arrow-visible-main-animation;
+  animation-duration: 1s;
+}
+
+.rounded-arrow.rounded-arrow-visible .left, .rounded-arrow.rounded-arrow-visible .right {
+  animation-name: rounded-arrow-visible-ticks-animation;
+  animation-duration: 1s;
+}
+
+@keyframes rounded-arrow-visible-main-animation {
+  0%   { height: 0px;}
+  20%   { height: 0px;}
+  100%  { height: 30px;}
+}
+
+@keyframes rounded-arrow-visible-ticks-animation {
+  0%   { height: 0px;}
+  40%   { height: 0px;}
+  100%  { height: 15px;}
+}
+
+
+/* Common animations */
+
+@keyframes scale-up-down {
+  0%   {transform: scale(0);}
+  50%  {transform: scale(1.2);}
+  100%  {transform: scale(1);}
 }
