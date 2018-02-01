@@ -1,31 +1,21 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-import className from "classnames"
+import DelayedCSSTransition from '../animations/DelayedCSSTransition'
 import './BoardCard.css'
 
 class BoardCard extends Component {
     
     constructor(args){
         super(args)
-        this.state = { transparent: true }
-    }
-
-    componentDidMount(){
-        setTimeout(() => this.setState({ transparent: false }), this.props.timeout)
+        this.state = { visible: true }
     }
 
     render() {
 
-        const { color, id, name } = this.props
-        const { transparent } = this.state
-
+        const { timeout } = this.props
         return (
-            <NavLink to={"/board/" + id} className={className("board-card personal-board-card", { transparent })} >
-                <div className="inner-item">
-                    <div className="background" style={{backgroundColor: color}}></div>
-                    <p>{name}</p>
-                </div>
-            </NavLink>
+            <DelayedCSSTransition delay={timeout} mountOnEnter={true} classNames="board-card" timeout={timeout + 1000}>
+                { this.props.children }
+            </DelayedCSSTransition>
         )
 
     }

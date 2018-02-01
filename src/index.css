@@ -57,33 +57,25 @@ a {
 
 
 .rounded-arrow {
-  background: rgba(0,0,0,0.3);
+  position: relative;
+  float: left;
+  background-color: rgba(0,0,0,0.3);
   border: solid 2px white;
   border-radius: 100%;
-  position: absolute;
-  left: 10%;
-  top: 10%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   transform: scale(1);
-  transition: transform 0.5s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
-
-.rounded-arrow.rounded-arrow-invisible {
-  transform: scale(0);
+.rounded-arrow:hover {
+  background-color: rgba(0,0,0,0.6);
 }
-
-.rounded-arrow.rounded-arrow-visible {
-  animation-name: scale-up-down;
-  animation-duration: 0.75s;
-}
-
 
 .rounded-arrow .main {
   position: absolute;
   width: 2px;
-  height: 30px;
+  height: 20px;
   background-color: white;
   left: 0;
   right: 0;
@@ -94,45 +86,60 @@ a {
 .rounded-arrow .left, .rounded-arrow .right{
   position: absolute;
   width: 2px;
-  height: 15px;
+  height: 12px;
   background-color: white;
   left: 0;
   right: 0;
   margin: auto;
-  top: -4px;
-  transform-origin: bottom;
+  top: 10px;
+  transform-origin: top;
 }
 
 .rounded-arrow .left{
-  transform: rotate(135deg);
+  transform: rotate(45deg);
 }
 
 .rounded-arrow .right{
-  transform: rotate(225deg);
+  transform: rotate(-45deg);
 }
 
 
-.rounded-arrow.rounded-arrow-visible .main {
+.rounded-arrow.rounded-arrow-enter {
+  animation-name: scale-up-down;
+  animation-duration: 0.75s;
+}
+
+.rounded-arrow.rounded-arrow-enter .main {
   animation-name: rounded-arrow-visible-main-animation;
-  animation-duration: 1s;
+  animation-duration: 0.75s;
 }
 
-.rounded-arrow.rounded-arrow-visible .left, .rounded-arrow.rounded-arrow-visible .right {
+.rounded-arrow.rounded-arrow-enter .left, .rounded-arrow.rounded-arrow-enter .right {
   animation-name: rounded-arrow-visible-ticks-animation;
-  animation-duration: 1s;
+  animation-duration: 0.75s;
 }
+
+.rounded-arrow.rounded-arrow-exit{
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out, background-color 0.2s ease-in-out;
+}
+.rounded-arrow.rounded-arrow-exit-active{
+  transform: scale(0);
+}
+
 
 @keyframes rounded-arrow-visible-main-animation {
   0%   { height: 0px;}
   20%   { height: 0px;}
-  100%  { height: 30px;}
+  100%  { height: 20px;}
 }
 
 @keyframes rounded-arrow-visible-ticks-animation {
   0%   { height: 0px;}
-  40%   { height: 0px;}
-  100%  { height: 15px;}
+  20%   { height: 0px;}
+  100%  { height: 12px;}
 }
+
 
 
 /* Common animations */
@@ -142,3 +149,41 @@ a {
   50%  {transform: scale(1.2);}
   100%  {transform: scale(1);}
 }
+
+
+
+
+
+/* ICONS */
+
+.plus-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.plus-icon .plus-icon-inner-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.plus-icon .plus-icon-inner-item div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 2px;
+  height: 100%;
+  background: #999;
+}
+
+.plus-icon .plus-icon-inner-item div:nth-child(1) {
+}
+
+.plus-icon .plus-icon-inner-item div:nth-child(2) {
+  transform: rotate(90deg);
+}
+
